@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
 
-  get 'reckoning/index'
+  resources :reckoning
+
+  resources :months
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

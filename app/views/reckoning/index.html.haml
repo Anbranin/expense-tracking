@@ -5,3 +5,14 @@ Control flow:
 %p enter new expense - on what date?
 %p enter new credit - on what date?
 %p display!
+= form_for Month.new do |m|
+  =m.label 'enter month name'
+  =m.text_field :name
+  =m.label 'enter number of days'
+  =m.number_field :days
+  =m.submit
+
+- @months.each do |month|
+  = month.name
+  - month.days.times do |day|
+    = day + 1
