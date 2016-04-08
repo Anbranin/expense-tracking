@@ -13,6 +13,9 @@ Control flow:
   =m.submit
 
 - @months.each do |month|
-  = month.name
-  - month.days.times do |day|
-    = day + 1
+  %table
+    %tbody
+      %th= month.name
+      - month.days.times do |day|
+        %tr
+          %td= day + 1
