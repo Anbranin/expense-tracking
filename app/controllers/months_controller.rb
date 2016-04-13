@@ -4,10 +4,6 @@ class MonthsController < ApplicationController
     redirect_to :back
   end
 
-  def new
-    @product = Product.new
-  end
-
   private
 
   def month_params
