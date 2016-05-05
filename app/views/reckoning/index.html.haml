@@ -18,3 +18,15 @@ Control flow:
       - month.days.times do |day|
         %tr
           %td= day + 1
+          - if month.expense_belonging_to(day)
+            %td= month.expense_belonging_to(day)
+          %td= button_to 'add new expense', expenses_path(month_id: month,
+            amount: 100,
+            date:(day + 1),
+            name: 'Clothing')
+
+//TODO: If expense exists where expense.date = day
+// button_to 'add expense'
+// else
+// button_to 'edit', button_to 'delete'
+// TODO: make expense sheet into flexbox. Much more um.. flexible.
