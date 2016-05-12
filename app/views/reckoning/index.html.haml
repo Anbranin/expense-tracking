@@ -1,10 +1,5 @@
-%h1 this is a running tab of all expenses. A reckoning, if you will.
+%h1 Running tab of expenses
 
-Control flow:
-%p enter month. Month creation: name, number of days, displays
-%p enter new expense - on what date?
-%p enter new credit - on what date?
-%p display!
 = form_for @month do |f|
   =f.label 'enter month name'
   =f.text_field :name
@@ -12,7 +7,9 @@ Control flow:
   =f.number_field :days
   =f.submit
 
-- @months.each do |month|
-  %table
-    %tbody
-      %th= month.name
+.container
+  - @months.each do |month|
+    .row.col-lg-3
+      %h3=month.name
+      -month.days.each do |day|
+        %p=day.name
