@@ -4,4 +4,5 @@ class ReckoningController < ApplicationController
     @month = Month.new
     @months = Month.all
   end
+
 end

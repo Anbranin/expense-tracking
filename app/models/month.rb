@@ -1,7 +1,11 @@
 class Month < ActiveRecord::Base
-  has_many :days, dependent: :destroy
-  has_many :expenses, through: :days
+  validates :name, :days, presence: true
+  validates :days, numericality: { in: 29..31 }
 
-  validates :name, presence: true
+  has_many :expenses, dependent: :destroy
 
+  def expense_belonging_to(day)
+    expense = Expense.find_by(month_id = id, date: day + 1)
+    expense.amount
+  end
 end
